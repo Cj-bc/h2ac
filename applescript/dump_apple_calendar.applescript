@@ -11,6 +11,7 @@
 --
 
 
+set delimiter to ";, "
 
 set theStartDate to current date
 set hours of theStartDate to 0
@@ -21,7 +22,9 @@ set theEndDate to theStartDate + (10 * days)
 tell application "Calendar"
   tell calendar "house"
     set theEvent to first event where its start date is greater than or equal to theStartDate and end date is less than or equal to theEndDate
-    summary of theEvent
+  end tell
+
+  tell theEvent
+      start date as string & delimiter & end date as string & delimiter & summary & delimiter & description & delimiter & location & delimiter & url
   end tell
 end tell
-
