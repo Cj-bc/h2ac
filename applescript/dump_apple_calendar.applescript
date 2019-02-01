@@ -34,7 +34,7 @@ end tell
 
 -- functions {{{2
 -- join each words using _delimiter
-on joinEach using _delimiter as string words _words as list
+on joinEach( _delimiter as string, _words)
   set ret to ""
   repeat with _word in _words
     set ret to ret & _word & _delimiter
