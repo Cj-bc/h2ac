@@ -23,12 +23,17 @@ set calendarName to "house"
 
 tell application "Calendar"
   tell calendar calendarName
-    set theEvent to first event where its start date is greater than or equal to theStartDate and end date is less than or equal to theEndDate
+    set FoundEvents to every event where its start date is greater than or equal to theStartDate and end date is less than or equal to theEndDate
   end tell
 
-  tell theEvent
-      start date as string & delimiter & end date as string & delimiter & summary & delimiter & description & delimiter & location & delimiter & url
-  end tell
+  set output to ""
+  repeat with e in FoundEvents
+    set _startDate to formatDate(start date of e) of me
+    set _endDate to formatDate(end date of e)     of me
+    set newText to joinEach(delimiter, { _startDate, _endDate, summary of e, description of e, location of e, url of e }) of me
+    set output to output & return & newText
+  end repeat
+  do shell script "echo '" & output & "'"
 end tell
 
 
