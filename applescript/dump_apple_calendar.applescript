@@ -10,7 +10,7 @@
 -- Detail: "{StartDate};, {EndDate};, {summary};, {description};, {location};, {url}"
 --
 
-
+-- configs {{{2
 set delimiter to ";, "
 
 set theStartDate to current date
@@ -19,6 +19,7 @@ set minutes of theStartDate to 0
 set seconds of theStartDate to 0
 set theEndDate to theStartDate + (10 * days)
 set calendarName to "house"
+-- }}}
 
 tell application "Calendar"
   tell calendar calendarName
