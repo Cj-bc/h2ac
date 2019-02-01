@@ -28,3 +28,22 @@ tell application "Calendar"
       start date as string & delimiter & end date as string & delimiter & summary & delimiter & description & delimiter & location & delimiter & url
   end tell
 end tell
+
+
+-- functions {{{2
+-- join each words using _delimiter
+on joinEach using _delimiter as string words _words as list
+  set ret to ""
+  repeat with _word in _words
+    set ret to ret & _word & _delimiter
+  end repeat
+  return ret
+end joinEach
+
+-- format date string
+on formatDate Date as date
+  set formatedDate to yaer of Date & "-" & month of Date & "-" & day of Date & " " & hours of Date & ":" & minutes of Date
+  return formanDate
+end formatDate
+
+-- }}}
