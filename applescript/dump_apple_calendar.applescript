@@ -42,9 +42,9 @@ on joinEach using _delimiter as string words _words as list
 end joinEach
 
 -- format date string
-on formatDate Date as date
-  set formatedDate to yaer of Date & "-" & month of Date & "-" & day of Date & " " & hours of Date & ":" & minutes of Date
-  return formanDate
+on formatDate(theDate as date)
+  set ret to year of theDate & "-" & month of theDate & "-" & day of theDate & " " & hours of theDate & ":" & minutes of theDate
+  return ret
 end formatDate
 
 -- }}}
