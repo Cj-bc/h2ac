@@ -18,9 +18,10 @@ set hours of theStartDate to 0
 set minutes of theStartDate to 0
 set seconds of theStartDate to 0
 set theEndDate to theStartDate + (10 * days)
+set calendarName to "house"
 
 tell application "Calendar"
-  tell calendar "house"
+  tell calendar calendarName
     set theEvent to first event where its start date is greater than or equal to theStartDate and end date is less than or equal to theEndDate
   end tell
 
